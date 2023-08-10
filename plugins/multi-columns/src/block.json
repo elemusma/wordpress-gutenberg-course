@@ -59,6 +59,14 @@
 		"columnRuleStyle": {
 			"type": "string",
 			"default": "solid"
+		},
+		"columnRuleWidth": {
+			"type": "integer",
+			"default": 1
+		},
+		"columnRuleColor": {
+			"type": "string",
+			"default": "#b8b8b8"
 		}
 	},
 	"textdomain": "multi-columns",
