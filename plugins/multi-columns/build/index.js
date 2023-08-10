@@ -123,11 +123,13 @@ function Edit({
   // column count
   const {
     columnCount,
-    columnWidth
+    columnWidth,
+    columnGap
   } = attributes;
   const columnStyles = {
     columnCount,
-    columnWidth
+    columnWidth,
+    columnGap
   };
   const onChangeColumnCount = val => {
     setAttributes({
@@ -144,24 +146,37 @@ function Edit({
       columnWidth: Number(val)
     });
   };
-  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.InspectorControls, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelBody, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.RangeControl, {
+  const onChangeColumnGap = val => {
+    setAttributes({
+      columnGap: Number(val)
+    });
+  };
+  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.InspectorControls, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelBody, {
+    title: "Column Settings"
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.RangeControl, {
     label: "Columns",
     value: columnCount,
     onChange: onChangeColumnCount,
     min: 2,
     max: 6
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_components_number_control__WEBPACK_IMPORTED_MODULE_4__.NumberControl, {
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_components_number_control__WEBPACK_IMPORTED_MODULE_4__["default"], {
     label: "Width",
     value: columnWidth,
     onChange: onChangeColumnWidth,
     min: 120,
     max: 500,
     step: 10
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_components_number_control__WEBPACK_IMPORTED_MODULE_4__["default"], {
+    label: "Gap",
+    value: columnGap,
+    onChange: onChangeColumnGap,
+    min: 10,
+    max: 100
   }))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.RichText, {
     ...(0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.useBlockProps)({
       style: columnStyles
     }),
-    tagName: "p",
+    tagName: "div",
     onChange: onChangeContent,
     value: attributes.content,
     placeholder: "Enter some text here..."
@@ -261,17 +276,19 @@ function save({
 }) {
   const {
     columnCount,
-    columnWidth
+    columnWidth,
+    columnGap
   } = attributes;
   const columnStyles = {
     columnCount,
-    columnWidth
+    columnWidth,
+    columnGap
   };
   return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.RichText.Content, {
     ..._wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.useBlockProps.save({
       style: columnStyles
     }),
-    tagName: "p",
+    tagName: "div",
     value: attributes.content
   });
 }
@@ -358,7 +375,7 @@ module.exports = window["wp"]["i18n"];
   \************************/
 /***/ ((module) => {
 
-module.exports = JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"create-block/multi-columns","version":"0.1.0","title":"Multi Columns","category":"design","icon":"columns","description":"Example block scaffolded with Create Block tool.","supports":{"html":true,"color":{},"spacing":{"margin":true,"padding":true}},"attributes":{"content":{"type":"string","source":"html","selector":"div"},"style":{"type":"object","default":{"color":{"text":"#3a3a3a","background":"#fbf9f4"},"spacing":{"padding":{"top":"20px","right":"20px","bottom":"20px","left":"20px"},"margin":{"top":"20px","right":"20px","bottom":"20px","left":"20px"}}}},"columnCount":{"type":"integer","default":4},"columnWidth":{"type":"integer","default":200}},"textdomain":"multi-columns","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","viewScript":"file:./view.js"}');
+module.exports = JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"create-block/multi-columns","version":"0.1.0","title":"Multi Columns","category":"design","icon":"columns","description":"Example block scaffolded with Create Block tool.","supports":{"html":true,"color":{},"spacing":{"margin":true,"padding":true}},"attributes":{"content":{"type":"string","source":"html","selector":"div"},"style":{"type":"object","default":{"color":{"text":"#3a3a3a","background":"#fbf9f4"},"spacing":{"padding":{"top":"20px","right":"20px","bottom":"20px","left":"20px"},"margin":{"top":"20px","right":"20px","bottom":"20px","left":"20px"}}}},"columnCount":{"type":"integer","default":4},"columnWidth":{"type":"integer","default":200},"columnGap":{"type":"integer","default":40},"columnRuleStyle":{"type":"string","default":"solid"}},"textdomain":"multi-columns","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","viewScript":"file:./view.js"}');
 
 /***/ })
 

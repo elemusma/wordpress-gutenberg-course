@@ -16,13 +16,13 @@ import { useBlockProps, RichText } from '@wordpress/block-editor';
  * @return {WPElement} Element to render.
  */
 export default function save({ attributes }) {
-	const { columnCount, columnWidth } = attributes;
-	const columnStyles = { columnCount, columnWidth };
+	const { columnCount, columnWidth, columnGap } = attributes;
+	const columnStyles = { columnCount, columnWidth, columnGap };
 
 	return (
 		<RichText.Content
 			{...useBlockProps.save({ style: columnStyles })}
-			tagName="p"
+			tagName="div"
 			value={attributes.content}
 		/>
 	);

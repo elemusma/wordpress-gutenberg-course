@@ -12,9 +12,9 @@ import { __ } from '@wordpress/i18n';
  * @see https://developer.wordpress.org/block-editor/reference-guides/packages/packages-block-editor/#useblockprops
  */
 import { useBlockProps, RichText, InspectorControls } from "@wordpress/block-editor";
-import { PanelBody, RangeControl } from '@wordpress/components';
+import { PanelBody, RangeControl, SelectControl } from '@wordpress/components';
 
-import { NumberControl } from './components/number-control';
+import NumberControl from './components/number-control';
 
 /**
  * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
@@ -38,8 +38,8 @@ import './editor.scss';
 export default function Edit({ attributes, setAttributes }) {
 
 	// column count
-	const { columnCount, columnWidth } = attributes;
-	const columnStyles = { columnCount, columnWidth };
+	const { columnCount, columnWidth, columnGap } = attributes;
+	const columnStyles = { columnCount, columnWidth, columnGap };
 
 	const onChangeColumnCount = (val) => {
 		setAttributes({ columnCount: val });
@@ -53,10 +53,14 @@ export default function Edit({ attributes, setAttributes }) {
 		setAttributes({ columnWidth: Number(val) });
 	};
 
+	const onChangeColumnGap = (val) => {
+		setAttributes({ columnGap: Number(val) });
+	};
+
 	return (
 		<>
 			<InspectorControls>
-				<PanelBody>
+				<PanelBody title="Column Settings">
 					<RangeControl
 						label="Columns"
 						value={columnCount}
@@ -72,11 +76,18 @@ export default function Edit({ attributes, setAttributes }) {
 						max={500}
 						step={10}
 					/>
+					<NumberControl
+						label="Gap"
+						value={columnGap}
+						onChange={onChangeColumnGap}
+						min={10}
+						max={100}
+					/>
 				</PanelBody>
 			</InspectorControls>
 			<RichText
 				{...useBlockProps({ style: columnStyles })}
-				tagName="p"
+				tagName="div"
 				onChange={onChangeContent}
 				value={attributes.content}
 				placeholder="Enter some text here..."
