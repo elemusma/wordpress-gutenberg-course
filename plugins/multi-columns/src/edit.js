@@ -43,9 +43,9 @@ export default function Edit({ attributes, setAttributes }) {
 	];
 
 	const MC_TEMPLATE = [
-		['core/heading', { level: 2, placeholder: 'Heading...' }],
+		['core/heading', { level: 2, placeholder: __('Heading...', 'multi-columns') }],
 		['core/paragraph', { placeholder: TEMPLATE_PARAGRAPHS[0] }],
-		['core/heading', { level: 4, placeholder: 'Sub Heading...' }],
+		['core/heading', { level: 4, placeholder: __('Sub Heading...', 'multi-columns') }],
 		['core/paragraph', { placeholder: TEMPLATE_PARAGRAPHS[1] }],
 	]
 
@@ -96,16 +96,16 @@ export default function Edit({ attributes, setAttributes }) {
 	return (
 		<>
 			<InspectorControls>
-				<PanelBody title="Column Settings">
+				<PanelBody title={__('Column Settings', 'multi-columns')}>
 					<RangeControl
-						label="Columns"
+						label={__('Columns', 'multi-columns')}
 						value={columnCount}
 						onChange={onChangeColumnCount}
 						min={2}
 						max={6}
 					/>
 					<NumberControl
-						label="Width"
+						label={__('Width', 'multi-columns')}
 						value={columnWidth}
 						onChange={onChangeColumnWidth}
 						min={120}
@@ -113,51 +113,51 @@ export default function Edit({ attributes, setAttributes }) {
 						step={10}
 					/>
 					<NumberControl
-						label="Gap"
+						label={__('Gap', 'multi-columns')}
 						value={columnGap}
 						onChange={onChangeColumnGap}
 						min={10}
 						max={100}
 					/>
 				</PanelBody>
-				<PanelBody title="Column Separator" initialOpen={false}>
+				<PanelBody title={__('Column Separator', 'multi-columns')} initialOpen={false}>
 					<SelectControl
-						label="Separator Style"
+						label={__('Separator Style', 'multi-columns')}
 						onChange={onChangeColumnRuleStyle}
 						value={columnRuleStyle}
 						options={[
 							{
-								label: 'None',
+								label: __('None', 'multi-columns'),
 								value: 'none',
 							},
 							{
-								label: 'Solid',
+								label: __('Solid', 'multi-columns'),
 								value: 'solid',
 							},
 							{
-								label: 'Dotted',
+								label: __('Dotted', 'multi-columns'),
 								value: 'dotted',
 							},
 							{
-								label: 'Dashed',
+								label: __('Dashed', 'multi-columns'),
 								value: 'dashed',
 							},
 							{
-								label: 'Double',
+								label: __('Double', 'multi-columns'),
 								value: 'double',
 							},
 							{
-								label: 'Groove',
+								label: __('Groove', 'multi-columns'),
 								value: 'groove',
 							},
 							{
-								label: 'Ridge',
+								label: __('Ridge', 'multi-columns'),
 								value: 'ridge',
 							},
 						]}
 					/>
 					<NumberControl initialOpen={false}
-						label="Width"
+						label={__('Width', 'multi-columns')}
 						onChange={onChangeColumnRuleWidth}
 						value={columnRuleWidth}
 						min={1}
@@ -165,10 +165,10 @@ export default function Edit({ attributes, setAttributes }) {
 					/>
 				</PanelBody>
 				<PanelColorSettings
-					title="Colour Settings"
+					title={__('Colour Settings', 'multi-columns')}
 					colorSettings={[
 						{
-							label: 'Separator Colour',
+							label: __('Separator Colour', 'multi-columns'),
 							value: columnRuleColor,
 							onChange: onChangeColumnRuleColor,
 						},
