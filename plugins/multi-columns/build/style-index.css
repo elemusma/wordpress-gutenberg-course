@@ -8,9 +8,19 @@
  * Replace them with your own styles or remove the file completely.
  */
 .wp-block-create-block-multi-columns {
-  background-color: #21759b;
-  color: #fff;
-  padding: 2px;
+  box-sizing: border-box;
+  -moz-column-fill: balance;
+       column-fill: balance;
+}
+.wp-block-create-block-multi-columns.is-style-box-shadow {
+  box-shadow: 0 4px 6px rgb(0, 0, 0);
+}
+.wp-block-create-block-multi-columns.is-style-drop-cap p:first-of-type:first-letter {
+  color: #b8b8b8;
+  float: left;
+  font-size: 3.8rem;
+  line-height: 3.5rem;
+  padding-right: 0.33rem;
 }
 
 /*# sourceMappingURL=style-index.css.map*/
